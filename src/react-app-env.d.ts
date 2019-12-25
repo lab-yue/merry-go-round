@@ -2,7 +2,9 @@
 
 declare namespace JSX {
   interface IntrinsicElements {
+    [s:string]:any
     "a-assets": any;
+    "a-entity": any;
     "a-box": any;
     "a-camera": any;
     "a-circle": any;

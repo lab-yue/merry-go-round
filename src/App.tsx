@@ -1,7 +1,15 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { css, Global } from "@emotion/core";
 
 export default function App() {
+  const [text, setText] = useState("");
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setText(text + "a");
+    }, 1000);
+    return clearInterval(id);
+  }, [text]);
   return (
     <>
       <Global
@@ -34,7 +42,14 @@ export default function App() {
         `}
       />
       <a-scene>
-        <a-text value="Now Interactable" geometry="primitive:plane"></a-text>
+        <a-entity id="text-panel" position="0 -0.311 0">
+          <a-text
+            id="text"
+            color="#fff"
+            text={`width:10;value:value`}
+            position="-5 1.493 -4.768"
+          ></a-text>
+        </a-entity>
       </a-scene>
     </>
   );
